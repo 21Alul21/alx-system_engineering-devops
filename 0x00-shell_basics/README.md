@@ -1,1 +1,1 @@
-Symbol link
+Copying HTML only
