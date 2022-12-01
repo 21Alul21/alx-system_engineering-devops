@@ -1,1 +1,1 @@
-Change a directory one step backwards
+Long list and hidden files in root and boot directory
