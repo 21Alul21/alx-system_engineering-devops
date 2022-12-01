@@ -1,1 +1,1 @@
-Display current directory content with user and group IDs displayed numerically
+Creates a new directory into another
