@@ -1,1 +1,1 @@
-change fike access to execute
+multiple permissions
