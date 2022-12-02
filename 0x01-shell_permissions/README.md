@@ -1,1 +1,1 @@
-who am i
+printing groups
