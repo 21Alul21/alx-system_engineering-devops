@@ -1,1 +1,1 @@
-Mirror pernissions
+mirror
