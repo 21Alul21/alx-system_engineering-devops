@@ -1,1 +1,1 @@
-display third line
+Duplicate last line
