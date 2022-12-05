@@ -1,1 +1,1 @@
-count the word bin
+count word root
