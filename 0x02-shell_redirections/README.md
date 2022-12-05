@@ -1,1 +1,1 @@
-Display work that that appear just once
+delete js files
