@@ -1,1 +1,1 @@
-count word root
+Hide word
