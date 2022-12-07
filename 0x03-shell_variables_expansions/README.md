@@ -1,1 +1,1 @@
-true knowledge
+dividerule
