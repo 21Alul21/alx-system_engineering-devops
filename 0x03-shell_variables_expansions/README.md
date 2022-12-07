@@ -1,1 +1,1 @@
-dividerule
+binary yo decimal
