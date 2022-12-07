@@ -1,2 +1,4 @@
 #!/bin/bash
-echo $(($BREATH**â€$LOVE))
+echo $(($BREATH**$LOVE))
+git add .
+git commit -m"love"
