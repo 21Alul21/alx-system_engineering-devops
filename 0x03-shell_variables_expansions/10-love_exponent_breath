@@ -1,4 +1,2 @@
 #!/bin/bash
 echo $(($BREATH**$LOVE))
-git add .
-git commit -m"love"
