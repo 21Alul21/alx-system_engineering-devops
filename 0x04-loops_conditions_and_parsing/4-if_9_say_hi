@@ -8,7 +8,7 @@ do
     then
         echo "Best School"
         echo "hi"
-        continue
+        (( i += 1 ))
     fi 
     echo "Best School"
     (( i += 1 ))
