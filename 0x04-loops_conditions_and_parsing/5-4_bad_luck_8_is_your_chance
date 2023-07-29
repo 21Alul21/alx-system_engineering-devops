@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# bash script using if, elif, else
-
+# bash script using while, if, elif, else statements
 i=1
 while (( i <= 10 ))
 do
@@ -15,3 +14,4 @@ do
     fi
     (( i += 1 ))
 done
+
