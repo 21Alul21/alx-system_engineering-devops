@@ -9,7 +9,8 @@ do
         echo "Best School"
         echo "hi"
         (( i += 1 ))
-    fi 
+    else
     echo "Best School"
+    fi
     (( i += 1 ))
 done
