@@ -10,7 +10,7 @@ do
         echo "hi"
         (( i += 1 ))
     else
-    echo "Best School"
-    (( i += 1 ))
+        echo "Best School"
+        (( i += 1 ))
     fi
 done
