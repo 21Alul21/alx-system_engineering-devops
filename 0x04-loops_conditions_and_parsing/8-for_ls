@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # script displays the content of the current directory a list format after a dash
 
-for i in $( ls . )
+for i in $(( ls . ))
 do
 	echo "$i" | cut -f 2- -d '-'
 done
