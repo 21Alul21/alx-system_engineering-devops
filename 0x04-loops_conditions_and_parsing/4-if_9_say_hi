@@ -11,6 +11,6 @@ do
         (( i += 1 ))
     else
     echo "Best School"
-    fi
     (( i += 1 ))
+    fi
 done
