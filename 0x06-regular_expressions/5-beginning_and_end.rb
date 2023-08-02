@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-ARGV[0].scan(/h\A.\Zn/).join
+ARGV[0].scan(/\Ah.n\Z/).join
