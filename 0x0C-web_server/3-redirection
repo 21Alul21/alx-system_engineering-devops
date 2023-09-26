@@ -1,39 +1,30 @@
 #!/usr/bin/env bash
-#Configures a new Ubuntu machine to run Nginx
+# Installs, configures, and starts the server
+apt-get update
+apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+mkdir -p /var/www/html/
+sudo chmod -R 755 /var/www
+echo 'Hello World!' > /var/www/html/index.html
+SERVER_CONFIG=\
+"server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	root /var/www/html;
+	index index.html index.htm index.nginx-debian.html;
+	server_name _;
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+	}
+}"
 
-#install Nginx
-sudo apt-get -y update
-sudo apt-get -y install nginx
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 
-#firewall configuration
-#sudo ufw enable
-#sudo ufw allow 'Nginx HTTP'
-
-#When querying Nginx at its root / with a GET
-#request (requesting a page) using curl, it must
-#return a page that contains the string Hello World!
-
-# get the default path for nginx static files
-val=$(grep -m 1 'root /' /etc/nginx/sites-enabled/default | tr -d ";" | cut -f 1 -d " " --complement)
-
-# replace the index.html text the with required text
-echo -e "Hello World!\n" > "$val"/index.html
-# just in case
-echo -e "Hello World!\n" > /var/www/html/index.html
-
-#makes sure default listens at port 80;
-sed -i 's/listen [0-9]* default_server/listen 80 default_server/' /etc/nginx/sites-enabled/default
-
-#does the same for the ipv6 address
-sed -i 's/listen \[::\]:[0-9]* default_server ipv6only=on/listen \[::\]:80 default_server ipv6only=on/' /etc/nginx/sites-enabled/default
-
-#edits the default in nginx/sites-enabled and allows redirection
-#from /redirect_me
-line=$(grep -n server_name /etc/nginx/sites-enabled/default | cut -d : -f 1 | \
-head -n 1)
-((line++))
-sudo sed -i "$line i rewrite ^/redirect_me http://jtobyy.tech permanent;" /etc\
-/nginx/sites-enabled/default
-
-sudo service nginx restart
-#or sudo /etc/init.d/nginx restart
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+	service nginx start
+else
+	service nginx restart
+fi
